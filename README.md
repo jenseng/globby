@@ -2,6 +2,10 @@
 
 globby is a [.gitignore](http://www.kernel.org/pub/software/scm/git/docs/gitignore.html)-compatible file globber for ruby
 
+## Installation
+
+Put `gem 'globby'` in your Gemfile.
+
 ## Usage
 
     Globby.new(rules).matches
