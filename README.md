@@ -35,4 +35,4 @@ Put `gem 'globby'` in your Gemfile.
 
 ## License
 
-Copyright (c) 2012 Jon Jensen, released under the MIT license
+Copyright (c) 2013 Jon Jensen, released under the MIT license
