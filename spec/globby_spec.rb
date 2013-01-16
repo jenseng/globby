@@ -86,7 +86,7 @@ describe Globby do
   end
 
   describe "#matches" do
-    it "should be the inverse of gitignore" do
+    it "should match gitignore perfectly" do
       require 'tmpdir'
       require 'fileutils'
 
