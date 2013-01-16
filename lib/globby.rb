@@ -21,12 +21,12 @@ class Globby
     return [] unless pattern = normalize(pattern)
     expects_dir = pattern.sub!(/\/\z/, '')
 
-    files = Dir.glob(pattern, File::FNM_DOTMATCH | File::FNM_PATHNAME)
+    files = Dir.glob(pattern, File::FNM_PATHNAME)
     result = []
     files.each do |file|
       next if ['.', '..'].include?(File.basename(file))
       if directory?(file)
-        result.concat matches_for("/" + file + "/**/*")
+        result.concat matches_for("/" + file + "/**/{*,.*}")
       elsif !expects_dir
         result << file
       end
