@@ -2,7 +2,7 @@
  
 Gem::Specification.new do |s|
   s.name = 'globby'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.summary = '.gitignore-compatible file globber'
   s.description = 'find files using .gitignore-style globs'
 
