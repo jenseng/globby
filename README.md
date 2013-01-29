@@ -1,6 +1,6 @@
 # globby
 
-globby is a [`.gitignore`](http://www.kernel.org/pub/software/scm/git/docs/gitignore.html)-compatible
+globby is a [`.gitignore`](http://www.kernel.org/pub/software/scm/git/docs/gitignore.html)-style
 file globber for ruby.
 
 ## Installation
@@ -9,8 +9,14 @@ Put `gem 'globby'` in your Gemfile.
 
 ## Usage
 
-    Globby.select(rules) # all files matched by the rules
-    Globby.reject(rules) # all other files
+    # all files matched by the rules
+    Globby.select(rules)
+
+    # all other files
+    Globby.reject(rules)
+
+    # ooh chaining!
+    Globby.select(rules).reject(other_rules)
 
 ### An example:
 

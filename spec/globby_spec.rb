@@ -3,6 +3,13 @@ require 'globby'
 RSpec.configure { |config| config.mock_framework = :mocha }
 
 describe Globby do
+  it "should support chaining" do
+    files = files(%w{foo/bar.rb foo/baz.rb foo/c/bar.html foo/c/c/bar.rb})
+    Globby.select(%w{*rb}, files).
+           reject(%w{baz*}).
+           select(%w{c}).should == %w{foo/c/c/bar.rb}
+  end
+
   describe ".select" do
     context "a blank line" do
       it "should return nothing" do
@@ -79,7 +86,10 @@ describe Globby do
   def files(files)
     files = Array(files)
     files.sort!
-    dirs = files.grep(/\//).map { |file| file.sub(/[^\/]+\z/, '') }.uniq.sort
-    {:files => files, :dirs => dirs}
+    dirs = files.grep(/\//).map(&:dup).inject([]) { |ary, file|
+      ary << file while file.sub!(/[^\/]+\z/, '')
+      ary
+    }.uniq.sort
+    Globby::GlObject.new files, dirs
   end
 end

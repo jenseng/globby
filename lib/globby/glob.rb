@@ -27,7 +27,7 @@ module Globby
 
     # see https://www.kernel.org/doc/man-pages/online/pages/man7/glob.7.html
     GLOB_BRACKET_EXPR = /
-      \[ # brackets 
+      \[ # brackets
         !? # (maybe) negation
         \]? # (maybe) right bracket
         (?: # one or more:
@@ -47,7 +47,7 @@ module Globby
 
     def to_regexp
       parts = @pattern.split(GLOB_TOKENIZER) - [""]
-  
+
       result = parts.first.sub!(/\A\//, '') ? '\A' : '(\A|/)'
       parts.each do |part|
         result << part_to_regexp(part)

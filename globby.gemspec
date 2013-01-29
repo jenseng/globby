@@ -2,8 +2,8 @@
  
 Gem::Specification.new do |s|
   s.name = 'globby'
-  s.version = '0.0.2'
-  s.summary = '.gitignore-compatible file globber'
+  s.version = '0.1.0'
+  s.summary = '.gitignore-style file globber'
   s.description = 'find files using .gitignore-style globs'
 
   s.required_ruby_version     = '>= 1.8.7'

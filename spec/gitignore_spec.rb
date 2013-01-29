@@ -36,25 +36,25 @@ describe Globby do
   def prepare_gitignore
     ignore = <<-IGNORE.gsub(/^ +/, '')
       # here we go...
-  
+
       # some dotfiles
       .hidden
-  
+
       # html, but just in the root
       /*.html
-  
+
       # all rb files anywhere
       *.rb
-  
+
       # except rb files immediately under foobar
       !foobar/*.rb
-  
+
       # this will match foo/bar but not bar
       bar/
-  
+
       # this will match nothing
       foo*bar/baz.pdf
-  
+
       # this will match baz/ and foobar/baz/
       baz
     IGNORE
