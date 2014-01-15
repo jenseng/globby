@@ -1,7 +1,7 @@
 require 'set'
-require '../globby/lib/globby/glob'
-require '../globby/lib/globby/globject'
-require '../globby/lib/globby/result'
+require 'globby/glob'
+require 'globby/globject'
+require 'globby/result'
 
 module Globby
   class << self
