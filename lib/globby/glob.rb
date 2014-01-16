@@ -1,11 +1,12 @@
 module Globby
   class Glob
     def initialize(pattern)
+      pattern = pattern.dup
       @inverse = pattern.sub!(/\A!/, '')
       # remove meaningless wildcards
-      @pattern = pattern.
-        sub(/\A\/?(\*\*\/)+/, '').
-        sub(/(\/\*\*)+\/\*\z/, '/**')
+      pattern.sub!(/\A\/?(\*\*\/)+/, '')
+      pattern.sub!(/(\/\*\*)+\/\*\z/, '/**')
+      @pattern = pattern
     end
 
     def match(files)
