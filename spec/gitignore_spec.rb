@@ -60,6 +60,10 @@ describe Globby do
 
       # this will match baz/ and foobar/baz/
       baz
+
+      # check reinclusion
+      /spec/*
+      !/spec/noignore
     IGNORE
     File.open('.gitignore', 'w'){ |f| f.write ignore }
     ignore
@@ -82,6 +86,8 @@ describe Globby do
       foobar/baz/lol.wut
       a/a.yuss
       a/a/a/a/a.yuss
+      spec/nope
+      spec/noignore
     FILES
     files.each do |file|
       FileUtils.mkdir_p File.dirname(file)

@@ -78,7 +78,7 @@ module Globby
         (part.split(/(#{GLOB_WILDCARD})/) - [""]).inject("") do |result, p|
           result << case p
             when '?'; '[^/]'
-            when '*'; '[^/]*'
+            when '*'; '[^/]' + (result.end_with?("/") ? '+' : '*')
             else Regexp.escape(p)
           end
         end
