@@ -85,7 +85,7 @@ describe Globby do
   end
 
   def untracked
-    `git status -uall`.gsub(/.*#\n|#\s+|^nothing.*/m, '').split(/\n/)
+    `git status -uall --porcelain`.gsub(/^\?\? /m, '').split(/\n/)
   end
 
   def git_files
