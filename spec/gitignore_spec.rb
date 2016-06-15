@@ -2,8 +2,6 @@ require 'globby'
 require 'tmpdir'
 require 'fileutils'
 
-RSpec.configure { |config| config.mock_framework = :mocha }
-
 describe Globby do
   around do |example|
     gitignore_test { example.run }
@@ -12,14 +10,14 @@ describe Globby do
   describe ".select" do
     it "should match .gitignore perfectly" do
       rules = prepare_gitignore
-      Globby.select(rules.split(/\n/)).should == all_files - git_files - untracked
+      expect(Globby.select(rules.split(/\n/))).to eq(all_files - git_files - untracked)
     end
   end
 
   describe ".reject" do
     it "should match the inverse of .gitignore, plus .git" do
       rules = prepare_gitignore
-      Globby.reject(rules.split(/\n/)).should == git_files + untracked
+      expect(Globby.reject(rules.split(/\n/))).to eq(git_files + untracked)
     end
   end
 

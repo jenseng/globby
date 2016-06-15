@@ -1,5 +1,7 @@
 # globby
 
+[<img src="https://travis-ci.org/jenseng/globby.svg" />](http://travis-ci.org/jenseng/globby)
+
 globby is a [`.gitignore`](http://www.kernel.org/pub/software/scm/git/docs/gitignore.html)-style
 file globber for ruby.
 

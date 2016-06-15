@@ -2,6 +2,5 @@ source 'https://rubygems.org'
 group :test do
   gem "byebug"
   gem "rake"
-  gem "rspec", "~> 2.12.0"
-  gem "mocha", "~> 0.13.1"
+  gem "rspec", "~> 3.4.0"
 end
