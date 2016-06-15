@@ -49,6 +49,9 @@ describe Globby do
       # except rb files immediately under foobar
       !foobar/*.rb
 
+      # ooh look **
+      /a/**/*.yuss
+
       # this will match foo/bar but not bar
       bar/
 
@@ -77,6 +80,8 @@ describe Globby do
       foobar/baz.txt
       foobar/baz.rb
       foobar/baz/lol.wut
+      a/a.yuss
+      a/a/a/a/a.yuss
     FILES
     files.each do |file|
       FileUtils.mkdir_p File.dirname(file)
